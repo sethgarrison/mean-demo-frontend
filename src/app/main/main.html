@@ -1,0 +1,15 @@
+<l4-navbar></l4-navbar>
+
+<h1>L4 Employees</h1>
+
+<md-button ng-click="main.addNewEmployee()">Add New Employee</md-button>
+
+<md-list>
+  <md-list-item ng-repeat="employee in main.employees.data track by $index">
+    <md-button ng-click="main.deleteEmployee(employee)">Delete</md-button>
+    <md-button ng-click="employee.edit()">EDIT</md-button>
+    <md-button ng-click="employee.create()" ng-if="!employee.data.id">Create</md-button>
+    <input ng-model="employee.data.name"/>
+    <textarea ng-model="employee.data.bio"/>
+  </md-list-item>
+</md-list>
