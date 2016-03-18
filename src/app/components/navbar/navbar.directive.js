@@ -9,6 +9,7 @@
   function acmeNavbar() {
     var directive = {
       restrict: 'E',
+      replace:true,
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
           creationDate: '='
@@ -23,6 +24,7 @@
     /** @ngInject */
     function NavbarController() {
       var vm = this;
+      vm.appName = "l4 Digital";
       vm.now = new Date().getTime();
     }
   }

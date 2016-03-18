@@ -24,7 +24,7 @@
       }
 
       this.addNew = function () {
-        this.data.push(new collection.ModelClass());
+        this.data.splice(0,0, new collection.ModelClass());
       };
 
       this.fetch = function () {

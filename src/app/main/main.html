@@ -1,15 +1,26 @@
 <l4-navbar></l4-navbar>
 
-<h1>L4 Employees</h1>
+<div layout="row" layout-margin layout-padding layout-wrap layout-align="start center">
+  <div flex="100">
+    <h1>L4 Employees</h1>
+    <md-button ng-click="main.addNewEmployee()">Add New Employee</md-button>
+  </div>
+  <div flex="70">
+    <md-list>
+      <md-list-item ng-repeat="employee in main.employees.data | orderBy:-data.id track by $index">
+        <md-input-container>
+          <label>Name</label>
+          <input ng-model="employee.data.name"/>
+        </md-input-container>
+        <md-input-container>
+          <label>Bio</label>
+          <textarea ng-model="employee.data.bio"></textarea>
+        </md-input-container>
 
-<md-button ng-click="main.addNewEmployee()">Add New Employee</md-button>
-
-<md-list>
-  <md-list-item ng-repeat="employee in main.employees.data track by $index">
-    <md-button ng-click="main.deleteEmployee(employee)">Delete</md-button>
-    <md-button ng-click="employee.edit()">EDIT</md-button>
-    <md-button ng-click="employee.create()" ng-if="!employee.data.id">Create</md-button>
-    <input ng-model="employee.data.name"/>
-    <textarea ng-model="employee.data.bio"/>
-  </md-list-item>
-</md-list>
+        <md-button ng-click="main.deleteEmployee(employee)" ng-if="employee.data.id">Delete</md-button>
+        <md-button ng-click="employee.edit()" ng-if="employee.data.id">Save</md-button>
+        <md-button ng-click="employee.create()" ng-if="!employee.data.id">Create</md-button>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>
