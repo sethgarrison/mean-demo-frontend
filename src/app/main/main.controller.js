@@ -8,6 +8,8 @@
   /** @ngInject */
   function MainController(api, $log, lodash) {
     var vm = this;
+
+    vm.hello = 'hello';
     vm.employees = new api.Employees();
 
     vm.employees.fetch().then(function(res){
@@ -23,7 +25,6 @@
     vm.addNewEmployee = function(){
       vm.employees.addNew();
     };
-
 
   }
 })();

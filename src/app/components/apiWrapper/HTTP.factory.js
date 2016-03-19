@@ -17,7 +17,6 @@ angular.module("l4.api")
     }
 
     function edit(endpoint, data) {
-
       var config = {method: "PUT", url: "/" + endpoint + "/" + data.id, data: data};
       return _http(config);
     }
